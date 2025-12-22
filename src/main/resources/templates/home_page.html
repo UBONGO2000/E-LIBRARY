@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/style/styles.css}" rel="stylesheet">
+</head>
+<body>
+<navbar th:class="nav" th:insert="~{parts/navigation::navigation}"></navbar>
+
+    <h1>This is home page</h1>
+    <form method="get" action="/books">
+        <div class="form-group">
+            <input name="login" type="text" placeholder="Enter login">
+            <input name="password" type="password" placeholder="Enter password">
+            <input type="submit" value="show books">
+        </div>
+    </form>
+
+<footer class="footer"  th:insert="~{parts/footer::footer}"></footer>
+</body>
+</html>
