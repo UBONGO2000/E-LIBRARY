@@ -17,6 +17,8 @@
     <tr>
         <th>NAME</th>
         <th>YEAR</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
     </tr>
 
     <th:block th:each="book: ${books}">
@@ -24,6 +26,16 @@
         <tr>
             <td th:text="${book.title}"></td>
             <td th:text="${book.year}"></td>
+            <td>
+                <button type="submit" class="edit">
+                    <a th:href="@{|/books/edit/${book.title}|}">Edit</a>
+                </button>
+            </td>
+            <td>
+                <button type="submit" class="delete">
+                    <a th:href="@{|/books/delete/${book.title}|}">Delete</a>
+                </button>
+            </td>
         </tr>
 
 

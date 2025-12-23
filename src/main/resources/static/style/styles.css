@@ -81,9 +81,27 @@ tr:nth-child(even) {
 .add{
     margin-top: 2rem;
     background-color: lightgreen;
-    color: black;
-    padding:1.5rem;
 }
+
+.edit{
+    background-color: lightsalmon;
+}
+
+.delete{
+    background-color: red;
+}
+
+.add>a,.edit>a,.delete>a{
+    color: black;
+    font-weight: bold;
+}
+
+.add,.edit,.delete{
+    padding-inline: 20px;
+    padding-block: 10px;
+    border: none;
+}
+
 
 /* =========================== footer ====================== */
 

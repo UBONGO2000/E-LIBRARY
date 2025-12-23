@@ -31,6 +31,10 @@ public class BookController {
         }
 
         String userLogin = (String) session.getAttribute("userlogin");
+        if(userLogin == null || userLogin.isEmpty()){
+            return "redirect:/";
+        }
+
         model.addAttribute("userLogin", userLogin);
         model.addAttribute("books", bookService.getAllBooks(userLogin));
         return "book_page";
@@ -49,4 +53,22 @@ public class BookController {
         return "redirect:/books";
     }
 
+    @GetMapping("/edit/{title}")
+    public String getEditBookPage(Model model, @PathVariable String title){
+        Book booktile = bookService.findByTitleAndDelete(title);
+        model.addAttribute("bookToEdit", booktile);
+        return "edit_book";
+    }
+
+    @PostMapping("/edit")
+    public String postEditBookPage(@ModelAttribute Book book){
+        bookService.edit(book);
+        return "redirect:/books";
+    }
+
+    @GetMapping("/delete/{title}")
+    public String delete(@PathVariable String title) {
+        bookService.delete(title);
+        return "redirect:/books";
+    }
 }
